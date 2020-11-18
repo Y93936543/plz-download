@@ -5,33 +5,21 @@ jobs:
   downloading:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2.1.0
-    - uses: actions/setup-node@v2.1.1
-      with: 
-        node-version: v14.3.0  
-    - name: Prepare your file
+    - uses: actions/checkout@v2
+      with:
+        ref: 'alternative'
+        fetch-depth: 0
+    - name: Main script
       run: |
-        mkdir download
+        sudo apt install axel
+        git reset --hard HEAD~
         git clone "https://github.com/${GITHUB_REPOSITORY}.wiki.git"
-        wiki=`echo $echo $GITHUB_REPOSITORY | cut -d "/" -f 2`.wiki
-        cd "$wiki"
-        drive=`git log --pretty=format: -1 --name-only *.md`
-        export drive
-        cd ..
-        wget `cat $wiki/$drive | xargs` --directory-prefix=download
-        npm i
-        npm start
-      env: 
-        url: ${{ secrets.url }}
-        username: ${{ secrets.username }}
-        password: ${{ secrets.password }}
-        nutstore_url: ${{ secrets.nutstore_url }}
-        nutstore_username: ${{ secrets.nutstore_username }}
-        nutstore_password: ${{ secrets.nutstore_password }}
-        box_url: ${{ secrets.box_url }}
-        box_username: ${{ secrets.box_username }}
-        box_password: ${{ secrets.box_password }}
-        yandex_url: ${{ secrets.yandex_url }}
-        yandex_username: ${{ secrets.yandex_username }}
-        yandex_password: ${{ secrets.yandex_password }}
-
+        wiki=`echo $GITHUB_REPOSITORY | cut -d "/" -f 2`.wiki
+        cd Downloads
+        axel -q -k "`cat ../$wiki/Home.md | xargs`" 
+        git config --local user.email "action@github.com" && git config --local user.name "GitHub Action"
+        git add . && git commit -m "append new file" -a
+    - uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true
