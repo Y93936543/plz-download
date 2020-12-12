@@ -14,7 +14,7 @@ webdav_url = "https://segmentfault.com/a/1190000022385985"
 webdav_username = "mrleaf@vip.qq.com"
 webdav_password = "Y93936543."
 
-print(webdav+"\n"+webdav_username+"\n"+webdav_password)
+print(webdav_url+"\n"+webdav_username+"\n"+webdav_password)
 
 options = {
  'webdav_hostname': webdav_url,
