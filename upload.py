@@ -10,9 +10,9 @@ if driver_prefix==None or driver_prefix=="Home":
 
 driver_prefix = driver_prefix[:-3]
 
-webdav_url = os.getenv(f"{driver_prefix}_URL")
-webdav_username = os.getenv(f"{driver_prefix}_USERNAME")
-webdav_password = os.getenv(f"{driver_prefix}_PASSWORD")
+webdav_url = "https://segmentfault.com/a/1190000022385985"
+webdav_username = "mrleaf@vip.qq.com"
+webdav_password = "Y93936543."
 
 if webdav_username==None or webdav_username=="" or webdav_password==None or webdav_password=="":
     print(f"{driver_prefix}_username 或 {driver_prefix}_password 没有配置secret")
