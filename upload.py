@@ -12,7 +12,7 @@ driver_prefix = driver_prefix[:-3]
 
 webdav_url = "https://dav.jianguoyun.com/dav/download"
 webdav_username = "mrleaf@vip.qq.com"
-webdav_password = "Y93936543."
+webdav_password = "aif9f4pca2vv66gv"
 
 print(webdav_url+"\n"+webdav_username+"\n"+webdav_password)
 
