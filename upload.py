@@ -10,7 +10,7 @@ if driver_prefix==None or driver_prefix=="Home":
 
 driver_prefix = driver_prefix[:-3]
 
-webdav_url = "https://segmentfault.com/a/1190000022385985"
+webdav_url = "https://dav.jianguoyun.com/dav/download"
 webdav_username = "mrleaf@vip.qq.com"
 webdav_password = "Y93936543."
 
