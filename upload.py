@@ -14,9 +14,7 @@ webdav_url = "https://segmentfault.com/a/1190000022385985"
 webdav_username = "mrleaf@vip.qq.com"
 webdav_password = "Y93936543."
 
-if webdav_username==None or webdav_username=="" or webdav_password==None or webdav_password=="":
-    print(f"{driver_prefix}_username 或 {driver_prefix}_password 没有配置secret")
-    exit(-1)
+print(webdav+"\n"+webdav_username+"\n"+webdav_password)
 
 options = {
  'webdav_hostname': webdav_url,
